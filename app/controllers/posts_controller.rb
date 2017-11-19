@@ -15,8 +15,9 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.user = current_user
     if @post.save
-      redirect_to posts_path
+      redirect_to posts_path, notice:"Publicación exitosa"
     else
       render:new
     end
@@ -29,7 +30,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
-      redirect_to posts_path
+      redirect_to posts_path, notice: "La publicación se ha modificado exitosamente"
     else
       render :edit
     end
@@ -38,7 +39,7 @@ class PostsController < ApplicationController
   def destroy
     post = Post.find(params[:id])
     post.destroy
-    redirect_to posts_path
+    redirect_to posts_path, notice: "La publicación se ha eliminado exitosamente"
 
   end
 
