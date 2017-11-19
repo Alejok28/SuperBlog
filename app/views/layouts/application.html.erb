@@ -9,6 +9,28 @@
   </head>
 
   <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">SuperBlog</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+            <li><%=link_to current_user.email%>
+              <li><%=link_to "Nuevo Post", new_post_path%>
+              <li><%=link_to "Salir", destroy_user_session_path, method: :delete, data: { confirm: "¿Estás seguro que desea salir?" }%></li>
+            <% else %>
+              <li><%=link_to "Registarse", new_user_registration_path%></li>
+              <li><%=link_to "Iniciar Sesión", new_user_session_path%></li>
+            <% end %>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>

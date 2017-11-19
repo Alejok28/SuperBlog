@@ -3,12 +3,14 @@
     <div class="publications">
       <% @posts.each do |post| %>
       <h2><%=link_to post.title, post%></h2>
-      <h5><%=post.title%></h5>
+      <h5><%=post.publised_for%></h5>
       <p><%=truncate(post.description,length: 250)%></p>
-      <%=link_to "<span class='glyphicon glyphicon-pencil'></span>Editar".html_safe, edit_post_path(post)%>
-      <%= link_to "<span class='glyphicon glyphicon-trash'></span>Eliminar".html_safe, post, method: :delete, data: { confirm: "¿Estás seguro de eliminar este producto?" } %>
+      <%if user_signed_in? %>
+        <%=link_to "<span class='glyphicon glyphicon-pencil'></span>Editar".html_safe, edit_post_path(post)%>
+        <%= link_to "<span class='glyphicon glyphicon-trash'></span>Eliminar".html_safe, post, method: :delete, data: { confirm: "¿Estás seguro de eliminar este post?" } %>
+      <% end %>
       <% end %>
     </div>
    </div> <!--row -->
-  <%=link_to "Crear post", new_post_path%>
+
 </div><!--container -->
