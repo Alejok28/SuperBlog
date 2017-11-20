@@ -13,13 +13,15 @@
           </div>
         <% end %>
         <div class="form-group">
-          <%= f.text_field :title, class: "form-control input-lg", placeholder: "Ingresa el título de la publicación"%>
+          <%=f.label :title%>
+          <%= f.text_field :title, class: "form-control input-lg", placeholder: "Ingresa el título de la publicación", autofocus:true%>
         </div>
         <div class="form-group">
-          <%= f.text_area :description, class: "form-control input-lg", placeholder: "Ingresa la publicación" %>
+          <%=f.label :description%>
+          <%= f.text_area :description, class: "form-control input-lg", placeholder: "Ingresa el cuerpo de la publicación" %>
         </div>
         <div class="form-group">
-          <%= f.submit form_title, class: "btn btn-primary btn-lg btn-block" %>
+          <%= f.submit form_title, class: "btn btn-primary" %>
         </div>
       <% end %>
 

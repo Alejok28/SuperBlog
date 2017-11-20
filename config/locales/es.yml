@@ -8,7 +8,10 @@ es:
     attributes:
       user:
         name: "Nombre"
+        email: "Correo Electronico"
         password: "Contraseña"
+        password_confirmation: "Confirmar Contraseña"
+        remember_me: "Recuerdame"
       post:
         title: "Título"
         description: "Descripción"
