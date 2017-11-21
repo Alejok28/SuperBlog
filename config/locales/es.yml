@@ -1,10 +1,9 @@
 es:
   errors:
     messages:
-      blank: "no puede estar en blanco"
-      invalid: "es inválido"
-      too_short: "es demasiado corto (mínimo: 250 caracteres)"
-
+      blank: "no puede estar en blanco."
+      invalid: "es inválido."
+      too_short: "es demasiado corto (mínimo: 250 caracteres)."
 
   activerecord:
     attributes:
@@ -17,3 +16,81 @@ es:
       post:
         title: "Título"
         description: "Descripción"
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "no puede estar vacío."
+            password:
+              blank: "no puede estar vacía."
+        post:
+          attributes:
+            title:
+              blank: "no puede estar vacío"
+            description:
+              blank: "no puede estar vacío"
+              too_short: "debe contener mínimo 250 caracteres"
+
+
+  devise:
+    confirmations:
+      confirmed: "Tu correo electrónico ha sido confirmado exitosamente."
+      send_instructions: "En unos minutos recibirás un correo electrónico con las instrucciones de cómo configurar tu dirección de correo."
+      send_paranoid_instructions: "Si tu direcciónde correo existe en nuestra base de datos, recibirás un correo con la información de cómo comfigurar tu dirección de correo."
+    failure:
+      already_authenticated: "Ya estas registrado"
+      inactive: "Tu cuenta no está activa aún."
+      invalid: "Contraseña o %{authentication_keys} invalido."
+      locked: "Tu cuenta está bloqueada."
+      last_attempt: "Tienes un intento mas antes de que tu cuenta sea bloqueada."
+      not_found_in_database: "Contraseña o %{authentication_keys} invalida."
+      timeout: "Tu sesión expiró. Por favor inicia sesión de nuevo para continuar."
+      unauthenticated: " Necesitas iniciar sesión o registrarte antes de continuar."
+      unconfirmed: "Necesitas confirmar tu correo electrónico antes de continuar."
+    mailer:
+      confirmation_instructions:
+        subject: "Instrucciones para comfirmar"
+      reset_password_instructions:
+        subject: "Instrucciones para reiniciar la contraseña"
+      unlock_instructions:
+        subject: "Instrucciones desbloqueadas"
+      email_changed:
+        subject: "Correo electronico cambiado"
+      password_change:
+        subject: "Contraseña cambiada"
+    omniauth_callbacks:
+      failure: "No puede autenticarse desde %{kind} por \"%{reason}\"."
+      success: "Autenticado correctamente desde la cuenta %{kind}."
+    passwords:
+      no_token: "No puedes acceder a esta página sin un correo electrónico de restablecimiento de contraseña. Si proviene de un correo electrónico de restablecimiento de contraseña, asegúrese de utilizar la URL completa provista."
+      send_instructions: "En unos minutos recibirás un correo electrónico con las instrucciones de cómo configurar tu dirección de correo."
+      send_paranoid_instructions: "Si tu direcciónde correo existe en nuestra base de datos, recibirás un correo con la información de cómo comfigurar tu dirección de correo."
+      updated: "Tu contraseña ha sido modificada exitosamente. Ya has iniciado sesión."
+      updated_not_active: "Tu contraseña se ha cambiado exitosamente."
+    registrations:
+      destroyed: "Adios! Tu cuenta ha sido cancelada exitosamente. Esperamos verte pronto."
+      signed_up: "Bienvenido! Te has registrado exitosamente."
+      signed_up_but_inactive: "Te has registrado exitosamente. Sin embargo, no se ha podido iniciar sesión porque tu cuenta no ha sido activada."
+      signed_up_but_locked: "Te has registrado exitosamente. Sin embargo, no se ha podido iniciar sesión porque tu cuenta está bloqueada."
+      signed_up_but_unconfirmed: "Se ha enviado un link de confirmacion a tu correo electrónico.Por favor ingresa al link para activar tu cuenta."
+      update_needs_confirmation: "Has actualizado tu cuenta exitosamente, pero necesitamos verificar tu nuevo correo electrónico. Por favor revisa tu correo y sigue las instrucciones para confirmar tu nuevo correo."
+      updated: "Tu cuenta ha sido modificada con exito."
+    sessions:
+      signed_in: "Has iniciado sesión correctamente."
+      signed_out: "Has cerrado sesión exitosamente."
+      already_signed_out: "Has cerrado sesión exitosamente."
+    unlocks:
+      send_instructions: "En unos minutos recibirás un correo con las instrucciones de cómo desbloquear tu contraseña."
+      send_paranoid_instructions: "Si tu cuenta existe, recibiras un correo con las instrucciones de cómo desbloquearlo."
+      unlocked: "Tu cuenta ha sido desbloqueada exitosamente. Por favor inicie sesión para continuar."
+  errors:
+    messages:
+      already_confirmed: "Ya fuiste comfirmado, por favor iniciar sessión."
+      confirmation_period_expired: "necesitas ser comfirmado  dentro de  %{period}, por favor solicita uno nuevo"
+      expired: "ha expirado, por favor solicita uno nuevo"
+      not_found: "no se encuentra"
+      not_locked: "no fue bloqueado"
+      not_saved:
+        one: "1 error prohibited this %{resource} from being saved:"
+        other: "%{count} errors prohibited this %{resource} from being saved:"
