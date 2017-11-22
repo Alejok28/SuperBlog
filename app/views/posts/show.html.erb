@@ -3,9 +3,10 @@
     <div class="col-sm-8 col-sm-offset-2">
       <div class="post">
         <%=link_to "<span class='glyphicon glyphicon-arrow-left'></span>Atras".html_safe, root_path%>
-        <h2><%=@post.title%></h2>
-        <h4>Publicado por <%=@post.user.email%></h4>
+        <h2 id="title"><%=@post.title%></h2>
+        <!-- <h5>Publicado por <%=@post.user.email%></h5> -->
         <p><%=markdown(@post.description)%></p>
+
       </div>
     </div>
   </div>
@@ -20,13 +21,13 @@
       <div class="comments">
         <%@post.comments.each do |comment| %>
           <div class="panel panel-default">
-            <div class="panel-heading"><%=comment.user.email%></div>
-            <div class="panel-body"><%=comment.body%></div>
+            <div class="panel-heading ">Publicado por <%=comment.user.email%> hace <%=time_ago_in_words(comment.created_at)%></div>
+            <div class="panel-body"><%=markdown(comment.body)%></div>
           </div>
         <% end %>
 
         <% if signed_in? %>
-          <h5>Nuevo comentario</h5>
+          <h>Nuevo comentario</h5>
           <%= form_for [@post, @post.comments.build] do |f| %>
             <div class="form-group">
               <%= f.text_area :body, class: "form-control", placeholder: "Agregar comentario" %>

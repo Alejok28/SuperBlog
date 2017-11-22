@@ -3,13 +3,13 @@
     <div class="col-sm-8 col-sm-offset-2">
       <div class="publications">
         <% @posts.each do |post| %>
-        <h2><%=link_to post.title, post%></h2>
-        <h5>Publicado por <%=post.user.email%></h5>
-        <p><%=markdown(truncate(post.description,length: 250))%></p>
-        <%if user_signed_in? && current_user == post.user %>
-          <%=link_to "<span class='glyphicon glyphicon-pencil'></span>Editar".html_safe, edit_post_path(post)%>
-          <%= link_to "<span class='glyphicon glyphicon-trash'></span>Eliminar".html_safe, post, method: :delete, data: { confirm: "¿Estás seguro de eliminar este post?" } %>
-        <% end %>
+          <h2 id="title"><%=link_to post.title, post%></h2>
+          <h5 class="published_ago">Publicado por <%=post.user.email%> hace <%=time_ago_in_words(post.created_at)%> </h5>
+          <p><%=markdown(truncate(post.description,length: 250))%></p>
+          <%if user_signed_in? && current_user == post.user %>
+            <%=link_to "<span class='glyphicon glyphicon-pencil'></span>Editar".html_safe, edit_post_path(post)%>
+            <%= link_to "<span class='glyphicon glyphicon-trash'></span>Eliminar".html_safe, post, method: :delete, data: { confirm: "¿Estás seguro de eliminar este post?" } %>
+          <% end %>
         <% end %>
       </div>
     </div>
