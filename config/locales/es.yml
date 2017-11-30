@@ -231,8 +231,12 @@ es:
           attributes:
             email:
               blank: "no puede estar vacío."
+              taken: "ya exite. Por favor escoge otro."
             password:
               blank: "no puede estar vacía."
+              too_short: "es muy corta."
+            password_confirmation:
+              confirmation: "no coincide."
         post:
           attributes:
             title:
